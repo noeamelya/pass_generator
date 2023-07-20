@@ -26,7 +26,9 @@ The following image shows the web application's appearance and functionality:
 ## Authors and acknowledgment
 
 ## License
+MIT 
 
 ## 
 
-# pass_generator
+
+Copyright (c) 2023 N Amelya
