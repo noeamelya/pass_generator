@@ -90,34 +90,29 @@ var upperCasedCharacters = [
 
 
 
-var allOptionPassword = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters ]
-var length = 12;
+var allOptionPassword = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters ];
 
 // Function to prompt user for password options
-// prompt("How to get password")
-function getPasswordOptions(allOptionPassword) {
-  prompt("How to get password")
+var getPassword = prompt("Enter your password");
+
+function getPasswordOptions() {
+  
 };
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+var getRandom = function(arr) {
   for (var i = 0; i < arr.length; i++){
-    console.log(arr[i]);
+   var char = Math.floor(Math.random() * arr.length + 1);
+   password += arr(char);
+   return password;
   };
-
 }
+getRandom(allOptionPassword);
+console.log(getRandom);
 
 // Function to generate password with user input
-function generatePassword(allOptionPassword) {
-  password += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-  password += numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-  password += lowerCasedCharacters[Math.floor(Math.random() * lowerCasedCharacters.length)];
-  password += upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
-
-  while(length > password.length){
-    password += allOptionPassword[Math.floor(Math.random() * allOptionPassword.length)];
-
-  }
+function generatePassword() {
+  
 }
 
 // Get references to the #generate element
@@ -125,8 +120,9 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-
+  var password = generatePassword()
+  
+  
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
