@@ -1,15 +1,16 @@
-# Password Generator
+# Password Generator JavaScript 
 
 ## Description
 
-Create an application that an employee can use to generate a random password.
-git
-## Instructions
+A password generator is a web tool that creates unique and random passwords based on security recommendations. It create strong, randdom, and secure passwords to keep you safe online.
+
+## Mock-Up
 
 The following image shows the web application's appearance and functionality:
 
 ![password generator demo](./assets/05-javascript-challenge-demo.png)
 
+## Instruction
 
 * Generate a password when the button is clicked
   * Present a series of prompts for password criteria
@@ -23,12 +24,26 @@ The following image shows the web application's appearance and functionality:
   * Code should validate for each input and at least one character type should be selected
   * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
-## Authors and acknowledgment
+## Technologies Uses 
+
+  - HTML
+  - CSS
+  - JavaScript
+
+
+## Deployed Site
+
+
+## Useful Links 
+
+
 
 ## License
-MIT 
+MIT @N Amelya
 
-## 
+## CONTACT 
+
+noeamelyaofficial@hotmail.com
 
 
 Copyright (c) 2023 N Amelya
