@@ -94,15 +94,17 @@ var allCharacters = [specialCharacters, numericCharacters, lowerCasedCharacters,
 console.log("These are an Array of characters to be included in password :  " + allCharacters);
 
 // Function to prompt user for password options
+var generateButton = document.querySelector("#generate")
 function getPasswordOptions() {
-  var password = prompt("Please enter your password");
-  if (password === allCharacters ){
-    console.log("At least 8 characters but no more than 128.");
-  }
+    var passwordLength = prompt("What is the length of password like");
+    var includedLower = confirm("Do you want lowercase?");
+    var includedUpper = confirm("Do you want Uppercase?");
+    var includedNumber = confirm("Do you want Number?");
+    var includedSymbols = confirm("Do you want Symbols?");
 
 };
-getPasswordOptions()
 
+getPasswordOptions()
 // Generator function - http://www.net-comber.com/charset.html
 // Function for getting a random element from an array
 function getRandom(max){
