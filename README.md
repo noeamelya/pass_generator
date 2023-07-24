@@ -37,7 +37,6 @@ The following image shows the web application's appearance and functionality:
 ## Useful Links 
 
 
-
 ## License
 MIT @N Amelya
 
