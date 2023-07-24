@@ -90,16 +90,15 @@ var upperCasedCharacters = [
 
 
 //all variables in an Array of characters to be included in password
-var allCharacters = {
-  symbols: specialCharacters, 
-  numbers: numericCharacters, 
-  lower: lowerCasedCharacters, 
-  upper: upperCasedCharacters,
-};
+var allCharacters = [
+  specialCharacters, 
+  numericCharacters, 
+  lowerCasedCharacters, 
+  upperCasedCharacters,
+];
 console.log("These are an Array of characters to be included in password :  " + allCharacters);
 
 //variables to prompt user for password options
-
   var passwordLength;
   var confirmLowerCase;
   var confirmUpperCase;
@@ -127,57 +126,54 @@ function getPasswordOptions() {
     if (!confirmCharacter && !confirmNumber && !confirmUpperCase && !confirmLowerCase) {
       choices = alert("You must choose a criteria!");
   } else if (confirmCharacter && confirmNumber && confirmUpperCase && confirmLowerCase){
-    choices = symbols.concat(numbers, lower, upper);
+    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
   }
 
   // Else if for 3 positive options
   else if (confirmCharacter && confirmNumber && confirmUppercase) {
-    choices = symbols.concat(numbers, upper);
+    choices = specialCharacters.concat(numericCharacters, upperCasedCharacters);
 }
 else if (confirmCharacter && confirmNumber && confirmLowercase) {
-    choices = symbols.concat(numbers, lower);
+    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters);
 }
 else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-    choices = symbols.concat(lower, upper);
+    choices = specialCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
 }
 else if (confirmNumber && confirmLowercase && confirmUppercase) {
-    choices = numbers.concat(lower, upper);
+    choices = numericCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
 }
   //else if for 2 positive options
   else if (confirmCharacter && confirmNumber){
-    choices = symbols.concat(numbers);
+    choices = specialCharacters.concat(numericCharacters);
   } else if (confirmCharacter && confirmLowerCase){
-    choices = symbols.concat(lower);
+    choices = specialCharacters.concat(lowerCasedCharacters);
   } else if (confirmCharacter && confirmUpperCase){
-    choices = symbols.concat(upper);
+    choices = specialCharacters.concat(upperCasedCharacters);
   } else if (confirmLowerCase && confirmNumber){
-    choices = lower.concat(numbers);
+    choices = lowerCasedCharacters.concat(numericCharacters);
   } else if (confirmLowerCase && confirmUpperCase){
-    choices = lower.concat(upper)
+    choices = lowerCasedCharacters.concat(upperCasedCharacters)
   } else if (confirmNumber && confirmUpperCase){
-    choices = numbers.concat(upper);
+    choices = numericCharacters.concat(upperCasedCharacters);
   }
   // else if for 1 positive option
   else if (confirmCharacter) {
-    choices = symbols;
+    choices = specialCharacters;
   } else if(confirmNumber){
-    choices = numbers;
+    choices = numericCharacters;
   } else if (confirmLowerCase){
-    choices = lower;
+    choices = lowerCasedCharacters;
   } else if (confirmUpperCase){
-    choices = upper;
+    choices = upperCasedCharacters;
   }
 };
 
 // Function for getting a random element from an array
 
 function getRandom(){
-var arr = allCharacters;
-for (var i = 0; i < arr.Length; i++) {
-  var randomLetter = arr[Math.floor(Math.random() * arr.length)];
-  randomLetter.push(arr);
+
 }
-};
+
 
 
 // Get references to the #generate element
@@ -186,9 +182,7 @@ var generateBtn = document.querySelector('#generate');
 // Function to generate password with user input
 function generatePassword(){
 
-
-}
-
+};
 
 // Write password to the #password input
 function writePassword() {
@@ -197,7 +191,7 @@ function writePassword() {
   document.querySelector('#generate').innerHTML;
   passwordText.value = password
   alert ("Write Password")
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword)
