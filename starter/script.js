@@ -203,14 +203,10 @@ function writePassword() {
   alert ("Choose your Password")
 };
 
-writePassword()
+writePassword();
 
-// // Add event listener to generate button
-generateBtn.addEventListener('click', function() {
-  ps = generatePassword();
-  document.getElementById("password").placeholder = ps;
-});
-
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
 
 // /* METHOD 2 */
 // // Declare variavles for each DOM elements.
