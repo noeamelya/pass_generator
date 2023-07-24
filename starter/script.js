@@ -94,62 +94,40 @@ var allCharacters = [specialCharacters, numericCharacters, lowerCasedCharacters,
 console.log("These are an Array of characters to be included in password :  " + allCharacters);
 
 // Function to prompt user for password options
-var generateButton = document.querySelector("#generate")
-function getPasswordOptions() {
-    var passwordLength = prompt("What is the length of password like");
-    var includedLower = confirm("Do you want lowercase?");
-    var includedUpper = confirm("Do you want Uppercase?");
-    var includedNumber = confirm("Do you want Number?");
-    var includedSymbols = confirm("Do you want Symbols?");
 
+  var passwordLength;
+  var includedLower = confirm("Do you want lowercase?");
+  var includedUpper = confirm("Do you want Uppercase?");
+  var includedNumber = confirm("Do you want Number?");
+  var includedSymbols = confirm("Do you want Symbols?");
+
+  function getPasswordOptions() {
+    passwordLength = parseInt(prompt("What is the length of password like?"));
+    if(!passwordLength){
+      alert ("This needs a value");
+    } else if(passwordLength < 8 || passwordLength > 128){
+      //Start user input
+      passwordLength = parseInt(prompt("You must choose 8 and 128"))
+    } else { 
+      //
+      includedLower = confirm("Do you want lowercase?");
+      includedUpper = confirm("Do you want Uppercase?");
+      includedNumber = confirm("Do you want Number?");
+      includedSymbols = confirm("Do you want Symbols?");
+    };
 };
 
-getPasswordOptions()
-// Generator function - http://www.net-comber.com/charset.html
-// Function for getting a random element from an array
-function getRandom(max){
-  return Math.floor(Math.random() * max);
-};
-
-console.log(getRandom(8)); //expected output : 0,1,2 or 5
-console.log(Math.random()); // Expected output a number 0 to < 1
-
-
-//Random variable "special/symbols"
-function symbols(){
-  var symbols = specialCharacters;
-  return symbols[Math.floor(Math.random() * symbols.length)];
-};
-console.log(symbols());
-  
-// Random variable "numbers"
-function getRandomNumber(){
-  return String.fromCharCode(Math.floor(Math.random()*numericCharacters.length + 48));
-};
-console.log(getRandomNumber());
-
-// Random variable "lowercase"
-function getRandomLawer(){
-  return String.fromCharCode(Math.floor(Math.random()*lowerCasedCharacters.length + 97));
-};
-console.log(getRandomLawer());
-
-//Random variable "Uppercase"
-function getRandomUpper(){
-  return String.fromCharCode(Math.floor(Math.random()*upperCasedCharacters.length + 65));
-};
-
-console.log(getRandomUpper());
 
 
 // Function to generate password with user input
 
-function generatePassword() { 
+function generatePassword(length) { 
 }
 
 generatePassword()
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+
 
 // Write password to the #password input
 function writePassword() {
