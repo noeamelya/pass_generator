@@ -90,7 +90,12 @@ var upperCasedCharacters = [
 
 
 //all variables in an Array of characters to be included in password
-var allCharacters = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters ];
+var allCharacters = {
+  symbols: specialCharacters, 
+  numbers: numericCharacters, 
+  lower: lowerCasedCharacters, 
+  upper: upperCasedCharacters,
+};
 console.log("These are an Array of characters to be included in password :  " + allCharacters);
 
 //variables to prompt user for password options
@@ -103,7 +108,7 @@ console.log("These are an Array of characters to be included in password :  " + 
 
   // Function to generate password with user input
 
-function generatePassword() {
+function getPasswordOptions() {
     passwordLength = parseInt(prompt("What is the length of password like?"));
     if(!passwordLength){
       alert ("This needs a value");
@@ -122,77 +127,74 @@ function generatePassword() {
     if (!confirmCharacter && !confirmNumber && !confirmUpperCase && !confirmLowerCase) {
       choices = alert("You must choose a criteria!");
   } else if (confirmCharacter && confirmNumber && confirmUpperCase && confirmLowerCase){
-    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+    choices = symbols.concat(numbers, lower, upper);
   }
 
   // Else if for 3 positive options
   else if (confirmCharacter && confirmNumber && confirmUppercase) {
-    choices = specialCharacters.concat(numericCharacters, upperCasedCharacters);
+    choices = symbols.concat(numbers, upper);
 }
 else if (confirmCharacter && confirmNumber && confirmLowercase) {
-    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters);
+    choices = symbols.concat(numbers, lower);
 }
 else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-    choices = specialCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
+    choices = symbols.concat(lower, upper);
 }
 else if (confirmNumber && confirmLowercase && confirmUppercase) {
-    choices = numericCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
+    choices = numbers.concat(lower, upper);
 }
   //else if for 2 positive options
   else if (confirmCharacter && confirmNumber){
-    choices = specialCharacters.concat(numericCharacters);
+    choices = symbols.concat(numbers);
   } else if (confirmCharacter && confirmLowerCase){
-    choices = specialCharacters.concat(lowerCasedCharacters);
+    choices = symbols.concat(lower);
   } else if (confirmCharacter && confirmUpperCase){
-    choices = specialCharacters.concat(upperCasedCharacters);
+    choices = symbols.concat(upper);
   } else if (confirmLowerCase && confirmNumber){
-    choices = lowerCasedCharacters.concat(numericCharacters);
+    choices = lower.concat(numbers);
   } else if (confirmLowerCase && confirmUpperCase){
-    choices = lowerCasedCharacters.concat(upperCasedCharacters)
+    choices = lower.concat(upper)
   } else if (confirmNumber && confirmUpperCase){
-    choices = numericCharacters.concat(upperCasedCharacters);
+    choices = numbers.concat(upper);
   }
   // else if for 1 positive option
   else if (confirmCharacter) {
-    choices = specialCharacters;
+    choices = symbols;
   } else if(confirmNumber){
-    choices = numericCharacters;
+    choices = numbers;
   } else if (confirmLowerCase){
-    choices = lowerCasedCharacters;
+    choices = lower;
   } else if (confirmUpperCase){
-    choices = upperCasedCharacters;
+    choices = upper;
   }
 };
 
 // Function for getting a random element from an array
 
 function getRandom(){
-var Password = [];
+var Password = allCharacters;
 for (var i = 0; i < passwordLength; i++) {
   var pickChoices = choices[Math.floor(Math.random() * choices.length)];
   Password.push(pickChoices);
 }
 };
-password[generatePassword()];
+getRandom()
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
-// Add event listener to generate button
-generateBtn.addEventListener('click', function() {
-  ps = generatePassword();
-  document.querySelector('#password').placeHolder = ps;
-});
 
 
 // Write password to the #password input
 function writePassword() {
-  password = generatePassword()
-  var passwordText = document.querySelector('#password');
-  passwordText.value = password;
-  alert ("Write Password to clipboard")
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password').value;
+  document.querySelector('#generate').innerHTML;
+  passwordText.value = password
+  alert ("Write Password")
 }
 
-
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword)
 
 
 
