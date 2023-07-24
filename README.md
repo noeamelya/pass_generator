@@ -32,9 +32,21 @@ The following image shows the web application's appearance and functionality:
 
 
 ## Deployed Site
-
+[gitHub deployed site](https://noeamelya.github.io/pass_generator/)
 
 ## Useful Links 
+[Window: prompt() Method](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
+
+[Math.floor()Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)
+
+[Math.random()Method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+
+[The parseInt() function parses a string argument](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+
+[Javascript user input password generator](https://stackoverflow.com/questions/61239900/javascript-user-input-password-generator)
+
+
+
 
 
 ## License
