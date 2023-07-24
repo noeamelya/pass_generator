@@ -106,7 +106,7 @@ console.log("These are an Array of characters to be included in password :  " + 
   var confirmNumber;
   var confirmCharacter;
 
-  // Function to generate password with user input
+  // Function to promt random password options
 
 function getPasswordOptions() {
     passwordLength = parseInt(prompt("What is the length of password like?"));
@@ -172,16 +172,22 @@ else if (confirmNumber && confirmLowercase && confirmUppercase) {
 // Function for getting a random element from an array
 
 function getRandom(){
-var Password = allCharacters;
-for (var i = 0; i < passwordLength; i++) {
-  var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-  Password.push(pickChoices);
+var arr = allCharacters;
+for (var i = 0; i < arr.Length; i++) {
+  var randomLetter = arr[Math.floor(Math.random() * arr.length)];
+  randomLetter.push(arr);
 }
 };
-getRandom()
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+
+// Function to generate password with user input
+function generatePassword(){
+
+
+}
 
 
 // Write password to the #password input
