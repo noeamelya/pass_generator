@@ -183,6 +183,7 @@ var passwordText = document.querySelector('#password');
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+
 // Added use selection
 var userSelection = [];
 var finalPassword = [];
@@ -227,25 +228,22 @@ function generatePassword() {
   }
   // getting a random element from an array
   for (var i = 0; i < userSelection; i++){
-    var randomIndex = Math.floor(Math.random()* userSelection);
+    var randomIndex = Math.floor(Math.random()* userSelection.length + 1);
     var random = userSelection.charArt(randomIndex);
     finalPassword = finalPassword.concat(random);
   }
   return finalPassword;
 };
 
-generatePassword();
-var password = generatePassword();
-console.log(`Password :::> ${password} | length :::> ${password.length}`);
+
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
   passwordText.value = password;
-}
-
-writePassword();
+  return password;
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
