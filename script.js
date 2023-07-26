@@ -98,21 +98,18 @@ var allCharacters = [
 ];
 console.log("These are an Array of characters to be included in password :  " + allCharacters);
 
-//User input variables
-  var passLength;
-  var confirmLowerCase;
-  var confirmUpperCase;
-  var confirmNumber;
-  var confirmCharacter;
-  var userSelection;
-  
-  
 // DOM elements we’ll be working with:
 var generateBtn = document.querySelector('#generate');
-var passwordText = document.querySelector('#password');
 
+// Add event listener to generate button
+generateBtn.addEventListener('click', function(){
+  password = generatePassword();
+  document.querySelector('#password').placeholder = password;
+  
+} )
+// Start to Generate Password
 // Function to prompt user for password options
-function getPasswordOptions() {
+function generatePassword() {
     passwordLength = parseInt(prompt("What is the length of password like?"));
     if(!passwordLength){
       alert ("This needs a value");
@@ -128,6 +125,7 @@ function getPasswordOptions() {
     }
 
     // Else if for 4 negative options
+    var userSelection;
     if (!confirmCharacter && !confirmNumber && !confirmUpperCase && !confirmLowerCase) {
       userSelection = alert("You must choose a criteria!");
   } else if (confirmCharacter && confirmNumber && confirmUpperCase && confirmLowerCase){
@@ -171,49 +169,20 @@ else if (confirmNumber && confirmLowercase && confirmUppercase) {
   } else if (confirmUpperCase){
     userSelection = upperCasedCharacters;
   };
-};
-
-getPasswordOptions();
-// Function for getting a random element from an array
-function getRandom() {
-  var getPassword = [];
-  // Start random selection variables:
   // Random selection for all variables: 
-  for (var i = 0; i < passLength; i++) {
-      var pickSelection = userSelection[Math.floor(Math.random() * userSelection.length)];
-      getPassword = getPassword.push(pickSelection);
+  var getPassword = [];
+  for (var i = 0; i < passwordLength; i++){
+    var pickSelection = userSelection[Math.floor(Math.random()* userSelection.length)];
+    getPassword.push(pickSelection);
   }
-  return getPassword
-};
- 
-getRandom();
-
-// Added use selection
-var userSelect= getRandom();
-var finalPassword = [];
-
-// Function to generate password with user input
-function generatePassword() {
-    for (var i = 0; i < userSelection; i++){
-    var randomIndex = Math.floor(Math.random()* userSelection + 1);
-    var random = userSelection[randomIndex];
-    finalPassword = finalPassword.concat(random);
-  }
-  return finalPassword;
-};
-
-generatePassword()
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-  passwordText.value = password;
+  var password = getPassword.join("");
+  UserInput(password);
   return password;
 };
 
-writePassword();
+// Changed function input
+function UserInput(password){
+  var passwordText = document.querySelector('#password').value ;
+  passwordText = password;
+};
 
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
