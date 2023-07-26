@@ -183,12 +183,12 @@ else if (confirmNumber && confirmLowercase && confirmUppercase) {
     getPassword.push(pickSelection);
   }
   var password = getPassword.join("");
-  UserInput(password);
+  writePassword(password);
   return password;
 };
 
-// Changed function input
-function UserInput(password){
+// Add function to write the password
+function writePassword(password){
   var passwordText = document.querySelector('#password').value ;
   passwordText = password;
 };
