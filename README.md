@@ -34,6 +34,14 @@ The following image shows the web application's appearance and functionality:
 ## Deployed Site
 [gitHub deployed site](https://noeamelya.github.io/pass_generator/)
 
+## OUTCOME :
+
+![User input](./images/gen.png)
+
+![user seelection](./images/gen1.png)
+
+![generate password](./images/gen2.png)
+
 ## Useful Links 
 [Window: prompt() Method](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
 
