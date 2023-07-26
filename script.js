@@ -101,6 +101,14 @@ console.log("These are an Array of characters to be included in password :  " + 
 // DOM elements we’ll be working with:
 var generateBtn = document.querySelector('#generate');
 
+// User input variables :
+var passwordLength;
+var confirmLowerCase;
+var confirmUpperCase;
+var confirmNumber;
+var confirmCharacter;
+var userSelection;
+
 // Add event listener to generate button
 generateBtn.addEventListener('click', function(){
   password = generatePassword();
@@ -125,7 +133,6 @@ function generatePassword() {
     }
 
     // Else if for 4 negative options
-    var userSelection;
     if (!confirmCharacter && !confirmNumber && !confirmUpperCase && !confirmLowerCase) {
       userSelection = alert("You must choose a criteria!");
   } else if (confirmCharacter && confirmNumber && confirmUpperCase && confirmLowerCase){
